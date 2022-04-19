@@ -18,14 +18,12 @@ public class Random {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
-		Scanner s = new Scanner (System.in);
 		int anz_buchstaben,akt_anz=1,random;
 		boolean is_ergebnis=false;
 		String druckzeile="",ergebnis;
 		String [] teile;
 		long anz_ergebnisse = 0;
-		System.out.println("Wie viele Zeichen soll dein Zufallswort haben");
-		anz_buchstaben=s.nextInt();
+		anz_buchstaben=40;
 		random=(int)(Math.random()*26)+65;
 		druckzeile=druckzeile+(char)(random);
 		while(akt_anz<=anz_buchstaben-1)
@@ -85,15 +83,6 @@ public class Random {
 		}
 		driver.quit();
 		System.out.println("Das Wort: "+druckzeile+" hat "+anz_ergebnisse+" Ergebnisse.");
-		File file = new File("C:\\Users\\jportzeh\\Desktop\\Java Dateien\\Wenig Ergebnisse.txt");
-		if(file.exists()==false)
-		{
-			file.createNewFile();
-		}
-		BufferedWriter bwriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,true)));
-		bwriter.write(druckzeile+" : "+anz_ergebnisse);
-		bwriter.write("\n");
-		bwriter.close();
 	}
 
 }
